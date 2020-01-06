@@ -4,8 +4,8 @@ namespace Store.Domain.Entities
     {
         public Customer(string name, string email)
         {
-            this.Name = name;
-            this.Email = email;
+            Name = name;
+            Email = email;
         }
         public string Name { get; private set; }
         public string Email { get; private set; }
