@@ -12,7 +12,9 @@ namespace Store.Tests.Entities
         [TestCategory("Domain")]
         public void Dado_um_novo_pedido_valido_ele_deve_gerar_um_numero_com_8_caracteres()
         {
-            Assert.Fail();
+            var customer = new Customer("Thiago Cruz", "thagocruz@gmail.com");
+            var order = new Order(customer, 0, null);
+            Assert.AreEqual(8, order.Number.Length);
         }
 
         [TestMethod]
