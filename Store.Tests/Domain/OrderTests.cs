@@ -50,15 +50,18 @@ namespace Store.Tests.Entities
         [TestCategory("Domain")]
         public void Dado_um_novo_item_sem_produto_o_mesmo_nao_deve_ser_adicionado()
         {
-            var product = _product;
-            Assert.AreSame(product.Id, EOrderStatus.WaitingPayment);
+            var order = new Order(_customer, 0, null);
+            order.AddItem(null, 10);
+            Assert.AreEqual(order.Items.Count, 0);
         }
 
         [TestMethod]
         [TestCategory("Domain")]
         public void Dado_um_novo_item_com_quantidade_zero_ou_menor_o_mesmo_nao_deve_ser_adicionado()
         {
-            Assert.Fail();
+            var order = new Order(_customer, 0, null);
+            order.AddItem(_product, 0);
+            Assert.AreEqual(order.Items.Count, 0);
         }
 
         [TestMethod]
